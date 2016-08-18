@@ -1,0 +1,154 @@
+FORMAT: 1A
+
+# just-a-movie
+
+## Movies Collection [/movies]
+
+### List All Movies [GET]
+
++ Response 200 (application/json)
+
+        {
+            "statusCode": 200,
+            "message": "Success",
+            "data": [
+                {
+                    "movieId" : 1,
+                    "movieName" : "Suicide Squad",
+                    "movieYear" : "2016",
+                    "movieDirector" : "David Ayer",
+                    "movieGenre" : [
+                        "Action",
+                        "Adventure",
+                        "Comedy"
+                    ],
+                    "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMjM1OTMxNzUyM15BMl5BanBnXkFtZTgwNjYzMTIzOTE@._V1_SX300.jpg",
+                    "moviePlot" : "A secret government agency recruits imprisoned supervillains to execute dangerous black ops missions in exchange for clemency."
+                },
+                {
+                    "movieId" : 2,
+                    "movieName" : "Star Trek Beyond",
+                    "movieYear" : "2016",
+                    "movieDirector" : "Justin Lin",
+                    "movieGenre" : [
+                        "Action",
+                        "Adventure",
+                        "Sci-Fi"
+                    ],
+                    "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMTU0ODk1MTIxM15BMl5BanBnXkFtZTgwNTk3MTc5ODE@._V1_SX300.jpg",
+                    "moviePlot" : "The USS Enterprise crew explores the furthest reaches of uncharted space, where they encounter a new ruthless enemy who puts them and everything the Federation stands for to the test."
+                },
+                {
+                    "movieId" : 3,
+                    "movieName" : "Deadpool",
+                    "movieYear" : "2016",
+                    "movieDirector" : "Tim Miller",
+                    "movieGenre" : [
+                        "Action",
+                        "Adventure",
+                        "Comedy"
+                    ],
+                    "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMjQyODg5Njc4N15BMl5BanBnXkFtZTgwMzExMjE3NzE@._V1_SX300.jpg",
+                    "moviePlot" : "A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelerated healing powers, adopting the alter ego Deadpool."
+                },
+                {
+                    "movieId" : 4,
+                    "movieName" : "Finding Dory",
+                    "movieYear" : "2016",
+                    "movieDirector" : "Andrew Stanton",
+                    "movieGenre" : [
+                        "Animation",
+                        "Adventure",
+                        "Comedy"
+                    ],
+                    "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BNzg4MjM2NDQ4MV5BMl5BanBnXkFtZTgwMzk3MTgyODE@._V1_SX300.jpg",
+                    "moviePlot" : "The friendly but forgetful blue tang fish begins a search for her long-lost parents, and everyone learns a few things about the real meaning of family along the way."
+                },
+                {
+                    "movieId" : 5,
+                    "movieName" : "The Legend of Tarzan",
+                    "movieYear" : "2016",
+                    "movieDirector" : "David Yates",
+                    "movieGenre" : [
+                        "Action",
+                        "Adventure",
+                        "Drama"
+                    ],
+                    "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMzY3OTI0OTcyMF5BMl5BanBnXkFtZTgwNjkxNTAwOTE@._V1_SX300.jpg",
+                    "moviePlot" : "Tarzan, having acclimated to life in London, is called back to his former home in the jungle to investigate the activities at a mining encampment."
+                }
+            ]
+        }
+        
+
+### Create New Movies [POST]
+
++ Request (application/json)
+
+        {
+            "movieId" : 6,
+            "movieName" : "The Angry Birds Movie",
+            "movieYear" : "2016",
+            "movieDirector" : "Clay Kaytis",
+            "movieGenre" : [
+                "Animation",
+                "Action",
+                "Comedy"
+            ],
+            "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMjMwMjgyMDk0MF5BMl5BanBnXkFtZTgwNDIxOTI4NzE@._V1_SX300.jpg",
+            "moviePlot" : "Find out why the birds are so angry. When an island populated by happy, flightless birds is visited by mysterious green piggies, it's up to three unlikely outcasts - Red, Chuck and Bomb - to figure out what the pigs are up to."
+        }
+      
++ Response 201 (application/json)  
+
+    + Headers
+    
+                Location: /movies/6
+                
+    + Body
+    
+                {
+                    "statusCode": 200,
+                    "message": "Success",
+                    "data": {
+                        "movieId" : 6,
+                        "movieName" : "The Angry Birds Movie",
+                        "movieYear" : "2016",
+                        "movieDirector" : "Clay Kaytis",
+                        "movieGenre" : [
+                            "Animation",
+                            "Action",
+                            "Comedy"
+                        ],
+                        "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMjMwMjgyMDk0MF5BMl5BanBnXkFtZTgwNDIxOTI4NzE@._V1_SX300.jpg",
+                        "moviePlot" : "Find out why the birds are so angry. When an island populated by happy, flightless birds is visited by mysterious green piggies, it's up to three unlikely outcasts - Red, Chuck and Bomb - to figure out what the pigs are up to."
+                    }
+                }
+                
+
+## Movie Detail [/movies/{id}]
+
+### Get Movie Detail[GET]
+
++ Parameter
+    + id (number)
+
++ Response 200 (application/json)
+
+        {
+            "statusCode": 200,
+            "message": "Success",
+            "data" : {
+                "movieId" : 1,
+                "movieName" : "Suicide Squad",
+                "movieYear" : "2016",
+                "movieDirector" : "David Ayer",
+                "movieGenre" : [
+                    "Action",
+                    "Adventure",
+                    "Comedy"
+                ],
+                "moviePoster" : "http://ia.media-imdb.com/images/M/MV5BMjM1OTMxNzUyM15BMl5BanBnXkFtZTgwNjYzMTIzOTE@._V1_SX300.jpg",
+                "moviePlot" : "A secret government agency recruits imprisoned supervillains to execute dangerous black ops missions in exchange for clemency."
+            }
+        }
